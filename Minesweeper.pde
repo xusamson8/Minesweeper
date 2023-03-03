@@ -1,7 +1,7 @@
 import de.bezier.guido.*;
 //Declare and initialize constants NUM_ROWS and NUM_COLS = 20
-public final static int NUM_ROWS = 5;
-public final static int NUM_COLS = 5;
+public final static int NUM_ROWS = 25;
+public final static int NUM_COLS = 25;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> mines = new ArrayList <MSButton>(); //ArrayList of just the minesweeper buttons that are mined
 
@@ -27,9 +27,9 @@ void setup ()
 }
 public void setMines()
 {
-  while (mines.size() < 5) {
-    int r = (int)(Math.random()*3);
-    int c = (int)(Math.random()*3);
+  while (mines.size() < 30) {
+    int r = (int)(Math.random()*20);
+    int c = (int)(Math.random()*20);
     if (!mines.contains(buttons[r][c]) ) {
       mines.add(buttons[r][c]);
       System.out.println(r + " " + c);
@@ -55,13 +55,15 @@ public boolean isWon()
 }
 public void displayLosingMessage()
 {
-    buttons[1][1].myLabel= "Y";
-    buttons[1][2].myLabel= "O";
-    buttons[1][3].myLabel= "U";
-    buttons[2][0].myLabel= "L";
-    buttons[2][1].myLabel= "O";
-    buttons[2][2].myLabel= "S";
-    buttons[2][3].myLabel= "E";
+     buttons[11][8].setLabel("Y");
+ buttons[11][9].setLabel("O");
+ buttons[11][10].setLabel("U");
+ buttons[11][11].setLabel(" ");
+ buttons[11][12].setLabel("L");
+ buttons[11][13].setLabel("O");
+ buttons[11][14].setLabel("S");
+ buttons[11][15].setLabel("E");
+
     for(int r = 0; r < NUM_ROWS; r++)
       for(int c = 0; c < NUM_COLS; c++)
         if(mines.contains(buttons[r][c]) && buttons[r][c].clicked == false)
@@ -72,12 +74,15 @@ public void displayLosingMessage()
 }
 public void displayWinningMessage()
 {
-   buttons[1][1].myLabel= "Y";
-    buttons[1][2].myLabel= "O";
-    buttons[1][3].myLabel= "U";
-    buttons[2][1].myLabel= "W";
-    buttons[2][2].myLabel= "I";
-    buttons[2][3].myLabel= "N";
+   buttons[11][8].setLabel("Y");
+ buttons[11][9].setLabel("O");
+ buttons[11][10].setLabel("U");
+ buttons[11][11].setLabel(" ");
+ buttons[11][12].setLabel("W");
+ buttons[11][13].setLabel("I");
+ buttons[11][14].setLabel("N");
+ buttons[11][15].setLabel("!");
+
 
 }
 public boolean isValid(int r, int c)

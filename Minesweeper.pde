@@ -138,7 +138,7 @@ public class MSButton
       }
     } else if (mines.contains(this)) {
       displayLosingMessage();
-      noLoop();
+      
     } else if (countMines(myRow, myCol) > 0) {
       setLabel(countMines(myRow, myCol));
     } else {
